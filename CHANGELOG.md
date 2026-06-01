@@ -7,3 +7,4 @@
 - Tap, long press, double tap, two-finger scroll.
 - Text panel and quick keys.
 - Token-protected local HTTP server.
+- Double-click launcher with QR code.

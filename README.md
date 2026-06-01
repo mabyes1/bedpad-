@@ -27,6 +27,18 @@ There are bigger tools in this space, including KDE Connect, Unified Remote, Rem
 
 ## Quick Start
 
+On Windows, double-click:
+
+```text
+run-bedpad.cmd
+```
+
+BedPad opens a small launcher with a QR code. Scan it with your phone and start using the touchpad.
+
+The first launch may ask to install the small `qrcode[pil]` package so the launcher can draw QR codes.
+
+## Command Line
+
 ```powershell
 python .\bedpad.py
 ```
