@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+- Improved the phone toolbar layout so quick keys no longer overlap on narrow screens.
+
 ## 0.1.1
 
 - Fixed launcher QR codes showing `Forbidden` when an old BedPad server was already using port 8876.

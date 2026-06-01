@@ -164,9 +164,9 @@ PAGE = """<!doctype html>
   #pad.active { background:radial-gradient(circle at 50% 35%, #243345, #151b22 72%); }
   #pad::after { content:""; position:absolute; inset:18px; border:1px dashed rgba(148,163,184,.22); border-radius:8px; pointer-events:none; }
   .hint { text-align:center; line-height:1.8; font-size:14px; z-index:1; }
-  .dock { display:grid; grid-template-columns:repeat(5, 1fr); gap:8px; }
+  .dock { display:grid; grid-template-columns:52px 52px minmax(92px, 1fr) 64px 64px; gap:8px; align-items:stretch; }
   button, textarea { border-radius:8px; border:1px solid var(--line); background:var(--panel); color:var(--text); font:inherit; }
-  button { min-height:48px; padding:10px 8px; font-weight:650; }
+  button { min-height:48px; padding:0 8px; font-size:14px; font-weight:650; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   button:active { background:var(--tap); transform:translateY(1px); }
   #sheet { position:fixed; left:0; right:0; bottom:0; padding:12px max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); background:#111820; border-top:1px solid var(--line); transform:translateY(105%); transition:transform .16s ease-out; box-shadow:0 -18px 40px rgba(0,0,0,.38); }
   #sheet.open { transform:translateY(0); }
@@ -189,8 +189,8 @@ PAGE = """<!doctype html>
     <button onclick="post('/key?key=backspace'); pulse('Backspace')">⌫</button>
     <button onclick="post('/key?key=escape'); pulse('Esc')">Esc</button>
     <button onclick="post('/key?key=space'); pulse('Space')">Space</button>
-    <button onclick="post('/key?key=enter'); pulse('Enter')">Enter</button>
-    <button onclick="openSheet()">Text</button>
+    <button onclick="post('/key?key=enter'); pulse('Enter')">↵</button>
+    <button onclick="openSheet()">Aa</button>
   </nav>
 </main>
 <section id="sheet">
