@@ -16,6 +16,7 @@
 - 快捷鍵：Backspace、Esc、Space、Enter。
 - 文字輸入會送到 Windows 目前聚焦的 App。
 - 預設使用隨機網址 token。
+- Launcher 啟動時會先清掉舊的 BedPad server，再建立新的 QR code。
 
 ## 定位
 
@@ -40,6 +41,8 @@ run-bedpad.cmd
 BedPad 會打開一個小視窗並顯示 QR code。用手機掃描後就能使用。
 
 第一次啟動可能會詢問是否安裝 `qrcode[pil]`，這是用來產生 QR code 的小套件。
+
+如果你再次雙擊 launcher，它會先停止上一個 BedPad server，再產生新的 QR code。
 
 ## 命令列
 
@@ -76,6 +79,18 @@ BedPad 會對目前的 Windows 工作階段注入滑鼠和鍵盤事件。請把 
 - 不要公開完整網址或 token。
 - 用完就關掉 BedPad。
 - 不要把連接埠暴露到網際網路。
+
+## 疑難排解
+
+### 手機顯示 `Forbidden`
+
+通常是掃到舊 QR code，或打開了舊網址。關掉 BedPad，重新雙擊 `run-bedpad.cmd`，再掃新的 QR code。
+
+### 手機打不開頁面
+
+- 確認手機和電腦在同一個 Wi-Fi 或區域網路。
+- 檢查 Windows Firewall 是否允許 Python 在私人網路通訊。
+- 也可以從 launcher 複製網址傳到手機上打開。
 
 ## 路線圖
 

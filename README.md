@@ -16,6 +16,7 @@ No mobile app. No account. One Python file. Built for couch and bed control.
 - Quick keys for Backspace, Esc, Space, and Enter.
 - Text input sends Unicode text to the currently focused Windows app.
 - Random URL token by default.
+- The launcher stops stale BedPad servers before starting a new one.
 
 ## Demo Positioning
 
@@ -38,6 +39,8 @@ run-bedpad.cmd
 BedPad opens a small launcher with a QR code. Scan it with your phone and start using the touchpad.
 
 The first launch may ask to install the small `qrcode[pil]` package so the launcher can draw QR codes.
+
+If you double-click the launcher again, it will stop the previous BedPad server and create a fresh QR code.
 
 ## Command Line
 
@@ -83,9 +86,20 @@ BedPad injects mouse and keyboard input into your Windows session. Treat the URL
 - Stop the server when you are done.
 - Do not expose the port to the internet.
 
+## Troubleshooting
+
+### The phone shows `Forbidden`
+
+You probably scanned an old QR code or opened a stale URL. Close BedPad, double-click `run-bedpad.cmd` again, and scan the new QR code.
+
+### The phone cannot open the page
+
+- Make sure the phone and PC are on the same Wi-Fi or LAN.
+- Check that Windows Firewall allows Python on private networks.
+- Try copying the URL from the launcher and sending it to your phone.
+
 ## Roadmap
 
-- QR code in the console or launcher.
 - Windows tray app.
 - Packaged `.exe` release.
 - Sensitivity sliders for pointer and scroll.
