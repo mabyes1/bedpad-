@@ -6,6 +6,8 @@ Use your phone browser as a tiny touchpad for your Windows PC.
 
 No mobile app. No account. One Python file. Built for couch and bed control.
 
+![BedPad demo](assets/bedpad-demo.gif)
+
 ## Features
 
 - Single-finger drag moves the PC cursor.

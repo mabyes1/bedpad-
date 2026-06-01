@@ -6,6 +6,8 @@
 
 不用裝手機 App。不用帳號。一個 Python 檔就能跑。特別適合躺在床上、沙發上遠端控制電腦。
 
+![BedPad demo](assets/bedpad-demo.gif)
+
 ## 功能
 
 - 單指拖曳移動電腦游標。
