@@ -51,6 +51,22 @@ def ensure_qr_deps():
     return False
 
 
+def stop_existing_servers():
+    if sys.platform != "win32":
+        return
+    ps = (
+        "Get-CimInstance Win32_Process -Filter \"name = 'python.exe'\" | "
+        "Where-Object { $_.CommandLine -match 'bedpad.py' -and $_.CommandLine -notmatch 'bedpad_launcher.py' } | "
+        "ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }"
+    )
+    subprocess.run(
+        ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-Command", ps],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
+    )
+
+
 class Launcher(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -85,6 +101,7 @@ class Launcher(tk.Tk):
         self.start_server()
 
     def start_server(self):
+        stop_existing_servers()
         token = secrets.token_urlsafe(9)
         self.port = find_free_port(DEFAULT_PORT)
         self.url = f"http://{local_ip()}:{self.port}/?token={token}"

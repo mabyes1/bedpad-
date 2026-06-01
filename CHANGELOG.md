@@ -4,6 +4,7 @@
 
 - Fixed launcher QR codes showing `Forbidden` when an old BedPad server was already using port 8876.
 - Launcher now automatically chooses the next free local port.
+- Launcher now stops stale BedPad server processes before starting a new one.
 
 ## 0.1.0
 
