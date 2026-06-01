@@ -3,6 +3,7 @@
 ## 0.1.2
 
 - Improved the phone toolbar layout so quick keys no longer overlap on narrow screens.
+- Refreshed the README demo GIF.
 
 ## 0.1.1
 

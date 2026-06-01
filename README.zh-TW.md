@@ -6,7 +6,7 @@
 
 不用裝手機 App。不用帳號。一個 Python 檔就能跑。特別適合躺在床上、沙發上遠端控制電腦。
 
-![BedPad demo](assets/bedpad-demo.gif)
+![BedPad demo](assets/bedpad-demo-v2.gif)
 
 ## 功能
 
