@@ -1,6 +1,6 @@
 [project]
 name = "bedpad"
-version = "0.1.0"
+version = "0.1.1"
 description = "Use your phone browser as a tiny touchpad for your Windows PC."
 readme = "README.md"
 requires-python = ">=3.10"

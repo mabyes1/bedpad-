@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1
+
+- Fixed launcher QR codes showing `Forbidden` when an old BedPad server was already using port 8876.
+- Launcher now automatically chooses the next free local port.
+
 ## 0.1.0
 
 - Initial Windows release.

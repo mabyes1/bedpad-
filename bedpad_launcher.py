@@ -16,7 +16,7 @@ except ImportError:
 
 
 ROOT = Path(__file__).resolve().parent
-PORT = 8876
+DEFAULT_PORT = 8876
 
 
 def local_ip():
@@ -58,6 +58,7 @@ class Launcher(tk.Tk):
         self.resizable(False, False)
         self.process = None
         self.url = None
+        self.port = None
         self.qr_image = None
 
         self.columnconfigure(0, weight=1)
@@ -85,10 +86,11 @@ class Launcher(tk.Tk):
 
     def start_server(self):
         token = secrets.token_urlsafe(9)
-        self.url = f"http://{local_ip()}:{PORT}/?token={token}"
+        self.port = find_free_port(DEFAULT_PORT)
+        self.url = f"http://{local_ip()}:{self.port}/?token={token}"
         self.url_var.set(self.url)
         self.process = subprocess.Popen(
-            [sys.executable, str(ROOT / "bedpad.py"), "--port", str(PORT), "--token", token],
+            [sys.executable, str(ROOT / "bedpad.py"), "--port", str(self.port), "--token", token],
             cwd=ROOT,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
@@ -124,6 +126,18 @@ def main():
     root.destroy()
     if ok:
         Launcher().mainloop()
+
+
+def find_free_port(preferred):
+    for port in [preferred, *range(preferred + 1, preferred + 50)]:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+            sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            try:
+                sock.bind(("0.0.0.0", port))
+            except OSError:
+                continue
+            return port
+    raise RuntimeError("Could not find a free local port for BedPad.")
 
 
 if __name__ == "__main__":
